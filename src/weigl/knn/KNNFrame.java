@@ -3,7 +3,11 @@ package weigl.knn;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.util.Arrays;
 
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,10 +28,16 @@ public class KNNFrame extends JFrame {
 	setGlassPane(glassPane);
 	glassPane.setOpaque(false);
 
-	OverPanel op = new HelpPanel(new Rectangle(10, 10, 250, 400));
+	OverPanel op = new HelpPanel(new Rectangle(10, 10, 350, 350));
 	op.setBackground(new Color(0, 0, 0, 0.4f));
 	op.setOpaque(true);
 	glassPane.add(op);
+
+	OverPanel ip = new InputPanel(new Rectangle(10, 400, 200, 100),
+		clickableVizPanel);
+	ip.setBackground(new Color(0, 0, 0, 0.4f));
+	ip.setOpaque(true);
+//	glassPane.add(ip);
 
 	glassPane.setVisible(true);
     }

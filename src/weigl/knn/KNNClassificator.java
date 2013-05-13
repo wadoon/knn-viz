@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.tools.Diagnostic;
+
 public class KNNClassificator {
     private List<double[]> database;
     private int classes;
@@ -17,40 +19,61 @@ public class KNNClassificator {
     }
 
     public double classify(double x, double y, int k) {
-	Tupel<Double, Integer>[] result = calculateDistance(x, y);
-
-	Arrays.sort(result, new Comparator<Tupel<Double, Integer>>() {
-	    @Override
-	    public int compare(Tupel<Double, Integer> o1,
-		    Tupel<Double, Integer> o2) {
-		return o1.get1().compareTo(o2.get1());
-	    }
-
-	});
+	Calculation[] result = nearestPoints(x, y, k);
 
 	int c[] = new int[classes + 2];
 	int old_class = classes + 1;
 	for (int i = 0; i < Math.min(k, result.length); i++) {
-	    c[result[i].get2()]++;
+	    c[result[i].label]++;
 
-	    if (c[result[i].get2()] > c[old_class])
-		old_class = result[i].get2();
+	    if (c[result[i].label] > c[old_class])
+		old_class = result[i].label;
 	}
 	return old_class;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    private Tupel<Double, Integer>[] calculateDistance(double x, double y) {
-	Tupel[] r = new Tupel[database.size()];
+    private Calculation[] calculateDistance(double x, double y) {
+	Calculation[] r = new Calculation[database.size()];
 
 	int i = 0;
 	for (double[] p : database) {
-	    double delta_x = p[0] - x;
-	    double delta_y = p[1] - y;
-	    Tupel<Double, Integer> t = new Tupel<>(Math.sqrt(delta_x * delta_x
-		    + delta_y * delta_y), (int) p[2]);
-	    r[i++] = t;
+	    final double delta_x = p[0] - x;
+	    final double delta_y = p[1] - y;
+	    final double distance = Math.sqrt(delta_x * delta_x + delta_y
+		    * delta_y);
+	    final int label = (int) p[2];
+
+	    r[i++] = new Calculation(p[0], p[1], distance, label);
 	}
 	return r;
+    }
+
+    public Calculation[] nearestPoints(double x, double y, int k) {
+	Calculation[] result = calculateDistance(x, y);
+	Arrays.sort(result, new Comparator<Calculation>() {
+	    @Override
+	    public int compare(Calculation o1, Calculation o2) {
+		return Double.compare(o1.distance, o2.distance);
+	    }
+	});
+	return Arrays.copyOf(result, k);
+    }
+}
+
+class Calculation {
+    public final double x, y, distance;
+    public final int label;
+
+    public Calculation(double p, double q, double d, int l) {
+	x = p;
+	y = q;
+	distance = d;
+	label = l;
+    }
+
+    @Override
+    public String toString() {
+	return "[x=" + x + ", y=" + y + ", distance=" + distance + ", label="
+		+ label + "]";
     }
 }
