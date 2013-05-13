@@ -1,7 +1,10 @@
 k-Nearest Neighbour
 ==========================
 
-Visualization of kNN-Classificator
+   Visualization of kNN-Classificator
+   
+   LICENSED under GPLv3
+
 
 You can start via the `weigla.knn.KNNFrame` class in eclipse.
 
