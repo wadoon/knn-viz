@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="http://github.com/areku/knn-viz/blob/master/" 
+			href="knn.jnlp?raw=true">
+
+	<information>
+    <title>knn-viz</title>
+    <vendor>Alexander Weigl</vendor>      
+		<offline-allowed/>
+  </information>
+
+  <resources>
+    <j2se version="1.7+"/>
+    <jar href="knn.jar?raw=true" main="true"/>
+  </resources>
+
+	<application-desc
+      main-class="weigl.knn.KNNFrame"
+      width="600"
+      height="600" />
+</jnlp>
