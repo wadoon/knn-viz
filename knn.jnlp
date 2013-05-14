@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jnlp codebase="http://github.com/areku/knn-viz/blob/master/" 
-			href="knn.jnlp?raw=true">
+<jnlp codebase="http://areku.github.io/knn-viz/" href="knn.jnlp">
 
 	<information>
     <title>knn-viz</title>
@@ -10,7 +9,7 @@
 
   <resources>
     <j2se version="1.7+"/>
-    <jar href="knn.jar?raw=true" main="true"/>
+    <jar href="knn.jar" main="true"/>
   </resources>
 
 	<application-desc
