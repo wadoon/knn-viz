@@ -6,8 +6,6 @@ public class RandomGenerator {
     private Random random = new Random();
     private int max;
     private int min;
-    private int mu;
-    private int std;
     private double stdY;
     private int muY;
     private double stdX;

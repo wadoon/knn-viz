@@ -5,8 +5,14 @@ k-Nearest Neighbour
    
    LICENSED under GPLv3
 
+<applet classpath="knn.jar" class="weigl.knn.StarterApplet" >
+ <param name="frame" value="weigl.knn.KNNFrame" />
+ <param name="buttonLabel" value="Start" />
+</applet>
+
 
 You can start via the `weigla.knn.KNNFrame` class in eclipse.
+
 
 What you can do:
 

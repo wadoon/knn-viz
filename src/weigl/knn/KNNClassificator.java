@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.tools.Diagnostic;
-
 public class KNNClassificator {
     private List<double[]> database;
     private int classes;

@@ -6,12 +6,12 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 public class HelpPanel extends OverPanel {
+    private static final long serialVersionUID = 1L;
     private JLabel lbl;
     private boolean helpShown = false;
     private Rectangle big;

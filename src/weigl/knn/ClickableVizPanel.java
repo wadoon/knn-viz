@@ -6,25 +6,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.SystemColor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ClickableVizPanel extends JPanel implements MouseListener,
 	KeyListener {
+    private static final long serialVersionUID = 1L;
     private static final char MESH_KEY = 'm';
     private static final char CLEAR_KEY = 'c';
     private static final char MOUSE_MODE_KEY = 't';

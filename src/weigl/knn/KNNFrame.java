@@ -3,18 +3,12 @@ package weigl.knn;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
-import java.util.Arrays;
 
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 
 public class KNNFrame extends JFrame {
-
+    private static final long serialVersionUID = 4973091727526645208L;
     ClickableVizPanel clickableVizPanel = new ClickableVizPanel();
     private JPanel glassPane = new JPanel(null, true);
 
@@ -37,7 +31,7 @@ public class KNNFrame extends JFrame {
 		clickableVizPanel);
 	ip.setBackground(new Color(0, 0, 0, 0.4f));
 	ip.setOpaque(true);
-//	glassPane.add(ip);
+	// glassPane.add(ip);
 
 	glassPane.setVisible(true);
     }
